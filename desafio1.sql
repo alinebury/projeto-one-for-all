@@ -5,7 +5,8 @@ CREATE DATABASE SpotifyClone;
 CREATE TABLE SpotifyClone.user(
     id INT PRIMARY KEY AUTO_INCREMENT,
     name_user VARCHAR(100) NOT NULL,
-    age INT NOT NULL
+    age INT NOT NULL,
+    date_plan DATE
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.artist(
@@ -54,18 +55,18 @@ CREATE TABLE SpotifyClone.followers(
     FOREIGN KEY(user_id) REFERENCES user(id)
 ) engine = InnoDB;
 
-INSERT INTO SpotifyClone.user (name_user, age)
+INSERT INTO SpotifyClone.user (name_user, age, date_plan)
 VALUES
-	("Thati", 23),
-	("Cintia", 35),
-	("Bill", 20),
-	("Roger", 45),
-	("Norman", 58),
-	("Patrick", 33),
-	("Vivian", 26),
-	("Carol", 19),
-	("Angelina", 42),
-	("Paul", 46);
+	("Thati", 23, '2019-10-20'),
+	("Cintia", 35, '2017-12-30'),
+	("Bill", 20, '2019-06-05'),
+	("Roger", 45, '2020-05-13'),
+	("Norman", 58, '2017-02-17'),
+	("Patrick", 33, '2017-01-06'),
+	("Vivian", 26, '2018-01-05'),
+	("Carol", 19, '2018-02-14'),
+	("Angelina", 42, '2018-04-29'),
+	("Paul", 46, '2017-01-17');
 
 
 INSERT INTO SpotifyClone.artist (artist_name)
