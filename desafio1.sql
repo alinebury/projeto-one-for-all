@@ -34,9 +34,7 @@ CREATE TABLE SpotifyClone.music(
     id INT PRIMARY KEY AUTO_INCREMENT,
     duration INT,
     music_name VARCHAR(100),
-    user_id INTEGER,
     album_id INTEGER,
-    FOREIGN KEY(user_id) REFERENCES user(id),
     FOREIGN KEY(album_id) REFERENCES album(id)
 ) engine = InnoDB;
 
