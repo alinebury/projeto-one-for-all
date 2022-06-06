@@ -18,8 +18,8 @@ CREATE TABLE SpotifyClone.user(
     name_user VARCHAR(100) NOT NULL,
     age INT NOT NULL,
     date_plan DATE,
-    id_plan INTEGER,
-    FOREIGN KEY(id_plan) REFERENCES plan(id)
+    plan_id INTEGER,
+    FOREIGN KEY(plan_id) REFERENCES plan(id)
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.album(
@@ -55,20 +55,6 @@ CREATE TABLE SpotifyClone.followers(
     FOREIGN KEY(user_id) REFERENCES user(id)
 ) engine = InnoDB;
 
-INSERT INTO SpotifyClone.user (name_user, age, date_plan)
-VALUES
-	("Thati", 23, '2019-10-20'),
-	("Cintia", 35, '2017-12-30'),
-	("Bill", 20, '2019-06-05'),
-	("Roger", 45, '2020-05-13'),
-	("Norman", 58, '2017-02-17'),
-	("Patrick", 33, '2017-01-06'),
-	("Vivian", 26, '2018-01-05'),
-	("Carol", 19, '2018-02-14'),
-	("Angelina", 42, '2018-04-29'),
-	("Paul", 46, '2017-01-17');
-
-
 INSERT INTO SpotifyClone.artist (artist_name)
 VALUES
   ("Walter Phoenix"),
@@ -77,15 +63,27 @@ VALUES
   ("Freedie Shannon"),
   ("Tyler Isle"),
   ("Fog");
-
   
 INSERT INTO SpotifyClone.plan (plan_name, price)
 VALUES
   ("gratuito", 0.00),
-  ("familiar", 7.99),
-  ("universitário", 5.99),
-  ("pessoal", 6.99);
-  
+  ("pessoal", 6.99),
+  ("universitario", 5.99),
+  ("familiar", 7.99);
+
+INSERT INTO SpotifyClone.user (name_user, age, date_plan, plan_id)
+VALUES
+	("Thati", 23, '2019-10-20', 1),
+	("Cintia", 35, '2017-12-30', 4),
+	("Bill", 20, '2019-06-05', 3),
+	("Roger", 45, '2020-05-13', 2),
+	("Norman", 58, '2017-02-17', 2),
+	("Patrick", 33, '2017-01-06', 4),
+	("Vivian", 26, '2018-01-05', 3),
+	("Carol", 19, '2018-02-14', 3),
+	("Angelina", 42, '2018-04-29', 4),
+	("Paul", 46, '2017-01-17', 4);
+
 INSERT INTO SpotifyClone.album (album_name, artist_id, release_year)
 VALUES
   ("Envious", 1, '1990'),
